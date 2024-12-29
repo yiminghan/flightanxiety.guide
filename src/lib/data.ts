@@ -45,6 +45,12 @@ export const causesOfDeath: RandomCausesOfDeath[] = [
     oneIn: 7_762,
     source: "https://www.weather.gov/safety/lightning-odds",
   },
+  {
+    title: "Skiing Accidents",
+    oddsOfDying: "1 in 1,000,000",
+    oneIn: 1_000_000,
+    source: "https://www.rosenbauminjuryfirm.com/2023-ski-injury-statistics/",
+  },
 ];
 
 export const planeAccidentOdds = "1 in 20,000,000";
