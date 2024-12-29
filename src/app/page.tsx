@@ -45,17 +45,16 @@ export default function Home() {
                       </p>
                       <span className="text-right text-sm">
                         {" "}
-                        ({(20_000_000 / c.oneIn).toFixed(0).toLocaleString()}x
+                        {(20_000_000 / c.oneIn).toFixed(0).toLocaleString()}x
                         more likely, or {c.oddsOfDying}
                         <a
-                          className="inline-flex align-top text-xs"
+                          className="inline-flex align-top text-xs text-blue-600 underline hover:text-blue-800"
                           href={c.source}
                           target="_blank"
                           aria-label="FAA Reference"
                         >
                           [*]
                         </a>
-                        )
                       </span>
                     </div>
                   </>
