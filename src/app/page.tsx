@@ -5,10 +5,10 @@ import { cn } from "~/lib/utils";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <main className="container mx-auto bg-transparent px-4 py-8">
+      <main className="container mx-auto bg-transparent px-4">
         <DotPattern
           className={cn(
-            "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+            "opacity-60 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
           )}
         />
         <div className="z-10 flex min-h-screen flex-col items-center justify-center">
@@ -31,32 +31,33 @@ export default function Home() {
           <p className="mb-8 text-center text-xl">
             you are more likely to die from:
           </p>
-          <div className="items-top grid grid-cols-3 justify-center gap-1 text-center text-xl">
+          <div className="items-top flex flex-col justify-center gap-1 text-center text-xl">
             {causesOfDeath
               .sort((a, b) => a.oneIn - b.oneIn)
               .map((c) => {
                 return (
                   <>
-                    <div />
-                    <p className="col-span-1 mb-8" key={c.title}>
-                      <b>
-                        <u>{c.title}</u>
-                      </b>{" "}
-                    </p>
-                    <span className="text-right text-sm">
-                      {" "}
-                      ({(20_000_000 / c.oneIn).toFixed(0).toLocaleString()}x
-                      more likely
-                      <a
-                        className="inline-flex align-top text-xs"
-                        href={c.source}
-                        target="_blank"
-                        aria-label="FAA Reference"
-                      >
-                        [*]
-                      </a>
-                      )
-                    </span>
+                    <div className="gap-sm mb-8 flex flex-col items-center">
+                      <p className="col-span-1" key={c.title}>
+                        <b>
+                          <u>{c.title}</u>
+                        </b>{" "}
+                      </p>
+                      <span className="text-right text-sm">
+                        {" "}
+                        ({(20_000_000 / c.oneIn).toFixed(0).toLocaleString()}x
+                        more likely, or {c.oddsOfDying}
+                        <a
+                          className="inline-flex align-top text-xs"
+                          href={c.source}
+                          target="_blank"
+                          aria-label="FAA Reference"
+                        >
+                          [*]
+                        </a>
+                        )
+                      </span>
+                    </div>
                   </>
                 );
               })}
